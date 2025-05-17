@@ -58,6 +58,5 @@ def plot_Xtrain(X_train, filename):
 
     file = './graphs/'+filename
     plt.savefig(file)
+    plt.close('all')
     print(f'Gráfico salvo em {file}')
-
-    return
