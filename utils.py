@@ -14,7 +14,7 @@ def get_column_subsets(X : pd.DataFrame) -> tuple:
                 'BsmtFin.SF.2','Bsmt.Unf.SF', 'Total.Bsmt.SF', 'X1st.Flr.SF',
                 'X2nd.Flr.SF', 'Gr.Liv.Area', 'Garage.Area', 'Wood.Deck.SF',
                 'Open.Porch.SF', 'Enclosed.Porch', 'Screen.Porch', 'X3Ssn.Porch',
-                'Tot.Lot.Area', 'Tot.Porch.SF']
+                'Tot.Porch.SF']
 
     numerical = [col for col in X.select_dtypes(include='number').columns.tolist() \
                   if col not in right_tail]
