@@ -28,9 +28,10 @@ def split_by_prefix(features: list) -> tuple:
     'cat__' for categorical, 'num__' for numerical, and 'clog_' for right-skewed data.
     Returns a tuple: (categorical, numerical, right_skewed)
     """
-    right_skewed = [f.split('__')[1] for f in features if f.startswith('clog_')]
+    right_skewed = [f.split('__')[1] for f in features if f.startswith('clog__')]
     numerical = [f.split('__')[1] for f in features if f.startswith('num__')]
     categorical = [f.split('__')[1] for f in features if f.startswith('cat__')]
+
     return right_skewed, numerical, categorical
 
 
