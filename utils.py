@@ -22,6 +22,17 @@ def get_column_subsets(X : pd.DataFrame) -> tuple:
     
     return right_tail, numerical, categorical
 
+def split_by_prefix(features: list) -> tuple:
+    """
+    Splits a list of feature names into three lists based on their prefixes:
+    'cat__' for categorical, 'num__' for numerical, and 'clog_' for right-skewed data.
+    Returns a tuple: (categorical, numerical, right_skewed)
+    """
+    right_skewed = [f.split('__')[1] for f in features if f.startswith('clog_')]
+    numerical = [f.split('__')[1] for f in features if f.startswith('num__')]
+    categorical = [f.split('__')[1] for f in features if f.startswith('cat__')]
+    return right_skewed, numerical, categorical
+
 
 def get_outlier_bounds(y : pd.Series):
     q1 = y.quantile(0.25)
