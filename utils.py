@@ -126,3 +126,18 @@ def y_hist(y: pd.Series, filename : str) -> None:
     plt.savefig(file)
     plt.close('all')
     print(f'Gráfico salvo em {file}')
+
+def true_vs_pred(y_true: pd.Series, y_pred: pd.Series, filename : str) -> None:
+    """
+    Plota um gráfico de dispersão entre os valores reais e previstos.
+    """
+    plt.figure(figsize=(12, 6))
+    plt.scatter(y_true, y_pred, alpha=0.5)
+    plt.plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], 'k--', lw=2)
+    plt.xlabel('True Values')
+    plt.ylabel('Predictions')
+    plt.title('True Values vs Predictions')
+    plt.tight_layout()
+    plt.savefig('y_true_vs_y_pred.png')
+    plt.close('all')
+    print(f'Gráfico salvo em {filename}')
