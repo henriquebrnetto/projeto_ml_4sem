@@ -138,6 +138,8 @@ def true_vs_pred(y_true: pd.Series, y_pred: pd.Series, filename : str) -> None:
     plt.ylabel('Predictions')
     plt.title('True Values vs Predictions')
     plt.tight_layout()
-    plt.savefig('y_true_vs_y_pred.png')
+
+    filename = './graphs/' + filename
+    plt.savefig(filename)
     plt.close('all')
     print(f'Gráfico salvo em {filename}')
